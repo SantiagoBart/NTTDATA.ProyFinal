@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import bootcamp.Bean.SolicitudRequest;
+import bootcamp.Bean.SolicitudResponse;
 import bootcamp.Models.Solicitud;
 import bootcamp.Repos.ISolicitudRepo;
 
@@ -39,8 +41,9 @@ public class ISolicitudImp implements ISolicitud {
 	}
 
 	@Override
-	public Solicitud Register(Solicitud request) throws Exception {
-		return repo.save(request);
+	public SolicitudResponse Register(SolicitudRequest request) throws Exception {
+		SolicitudResponse response= new SolicitudResponse();
+		return response;
 	}
 
 	@Override

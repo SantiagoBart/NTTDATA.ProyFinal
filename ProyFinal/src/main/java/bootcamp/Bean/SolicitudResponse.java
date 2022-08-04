@@ -1,28 +1,15 @@
-package bootcamp.Models;
+package bootcamp.Bean;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Builder
-@AllArgsConstructor
-@Data
-@NoArgsConstructor
-@Schema(description = "Información de Solicitud de Retiro")
-@Entity
-@Table(name = "Solicitud")
-public class Solicitud {
-
+public class SolicitudResponse {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer Id;
@@ -33,12 +20,8 @@ public class Solicitud {
 	private String DNI;
 
 	@Schema(description = "El Importe debe ser mayor a Cero")
-	@Column(name="importe", nullable=false)
-	private double Importe;
-
-	@Schema(description = "Codigo de AFP afiliado")
-	@Column(name="idAFP", nullable=false)
-	private int Afp;
+	@Column(name="importe_retiro", nullable=false)
+	private double ImporteRetiro;
 	
 	@Schema(description="Estado de Solicitud")
 	@Column(name="estado")

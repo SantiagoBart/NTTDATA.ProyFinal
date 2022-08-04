@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import bootcamp.Bean.SolicitudRequest;
+import bootcamp.Bean.SolicitudResponse;
 import bootcamp.Models.Solicitud;
 import bootcamp.Services.ISolicitud;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
@@ -40,8 +42,8 @@ public class SolicitudController {
 	}
 
 	@PostMapping(value="/Register", consumes="application/json", produces="application/json")
-	public Solicitud CustomerCreate(@RequestBody Solicitud request) {
-		Solicitud response= new Solicitud();
+	public SolicitudResponse CustomerCreate(@RequestBody SolicitudRequest request) {
+		SolicitudResponse response= new SolicitudResponse();
 		try {
 			logger.info("Inicio de Solicitud");
 			response=oSolic.Register(request);

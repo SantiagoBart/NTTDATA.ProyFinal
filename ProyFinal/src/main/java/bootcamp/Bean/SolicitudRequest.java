@@ -1,28 +1,14 @@
-package bootcamp.Models;
+package bootcamp.Bean;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Builder
-@AllArgsConstructor
-@Data
-@NoArgsConstructor
-@Schema(description = "Información de Solicitud de Retiro")
-@Entity
-@Table(name = "Solicitud")
-public class Solicitud {
-
+public class SolicitudRequest {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer Id;
@@ -38,9 +24,5 @@ public class Solicitud {
 
 	@Schema(description = "Codigo de AFP afiliado")
 	@Column(name="idAFP", nullable=false)
-	private int Afp;
-	
-	@Schema(description="Estado de Solicitud")
-	@Column(name="estado")
-	private String Estado;
+	private int Afp;	
 }
