@@ -1,5 +1,4 @@
-package Model;
-
+package bootcamp.Models;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,11 +21,11 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "AFP")
 public class AFP {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer Id;
-	
+
 	@Schema(description = "El Nombre debe tener minimo 3 caracteres")
 	@Size(min = 3, message = "El Nombre debe tener minimo 3 caracteres")
 	@Column(name = "nombres", nullable = false, length = 70)

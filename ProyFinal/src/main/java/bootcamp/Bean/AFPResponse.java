@@ -1,8 +1,8 @@
-package pe.com.ProyFinal.Bean;
+package bootcamp.Bean;
 
 import java.util.List;
 
-import Model.AFP;
+import bootcamp.Models.AFP;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

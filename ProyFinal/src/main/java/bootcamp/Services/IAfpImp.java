@@ -1,18 +1,17 @@
-package pe.com.ProyFinal.Services;
+package bootcamp.Services;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.el.stream.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import Model.AFP;
-import Repos.IAFPRepo;
-import pe.com.ProyFinal.Bean.AFPResponse;
+import bootcamp.Bean.AFPResponse;
+import bootcamp.Models.AFP;
+import bootcamp.Repos.IAFPRepo;
 
 @Service
 public class IAfpImp implements IAfp {
@@ -20,14 +19,14 @@ public class IAfpImp implements IAfp {
 
 	@Autowired
 	IAFPRepo repo;
-	
+
 	@Override
-	public AFPResponse Store() throws Exception {
-		AFPResponse response= new AFPResponse();		
+	public AFPResponse Store() {
+		AFPResponse response= new AFPResponse();
 		try {
-			List<AFP> lista= new ArrayList<AFP>();			
-			lista=repo.findAll();			
-			
+			List<AFP> lista= new ArrayList<>();
+			lista=repo.findAll();
+
 			response.setAFPList(lista);
 		}
 		catch(Exception e)
@@ -35,19 +34,19 @@ public class IAfpImp implements IAfp {
 			logger.info("Error: "+e.getMessage());
 		}
 		finally {
-			
+
 			logger.info("Solicitud Terminda");
 		}
 		return response;
 	}
 
 	@Override
-	public AFP Register(AFP request) throws Exception {		
+	public AFP Register(AFP request) throws Exception {
 		return repo.save(request);
 	}
 
 	@Override
-	public AFP FindByID(Integer id) throws Exception {		
+	public AFP FindByID(Integer id) throws Exception {
 		java.util.Optional<AFP> op=repo.findById(id);
 		return op.isPresent() ? op.get() : new AFP();
 	}
@@ -62,5 +61,5 @@ public class IAfpImp implements IAfp {
 		repo.deleteById(id);
 		return true;
 	}
-	
+
 }
